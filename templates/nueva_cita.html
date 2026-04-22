@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h2 class="mb-0">
+                    <i class="bi bi-plus-circle"></i> Registrar Nueva Cita
+                </h2>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <div class="mb-3">
+                        <label for="mascota" class="form-label">
+                            <i class="bi bi-heart"></i> Nombre de la Mascota *
+                        </label>
+                        <input type="text" class="form-control" id="mascota" name="mascota" 
+                               placeholder="Ej: Max, Luna, Rocky" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="propietario" class="form-label">
+                            <i class="bi bi-person"></i> Nombre del Propietario *
+                        </label>
+                        <input type="text" class="form-control" id="propietario" name="propietario" 
+                               placeholder="Ej: Juan Pérez" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="especie" class="form-label">
+                            <i class="bi bi-dog"></i> Especie
+                        </label>
+                        <select class="form-select" id="especie" name="especie">
+                            <option value="">Seleccione una especie...</option>
+                            <option value="Perro">🐕 Perro</option>
+                            <option value="Gato">🐈 Gato</option>
+                            <option value="Ave">🦜 Ave</option>
+                            <option value="Roedor">🐹 Roedor</option>
+                            <option value="Reptil">🐍 Reptil</option>
+                            <option value="Otro">🐾 Otro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="fecha" class="form-label">
+                            <i class="bi bi-calendar-event"></i> Fecha y Hora *
+                        </label>
+                        <input type="datetime-local" class="form-control" id="fecha" name="fecha" required>
+                        <div class="form-text">Formato: YYYY-MM-DD HH:MM</div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-save"></i> Guardar Cita
+                        </button>
+                        <a href="{{ url_for('index') }}" class="btn btn-secondary">
+                            <i class="bi bi-x-circle"></i> Cancelar
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
