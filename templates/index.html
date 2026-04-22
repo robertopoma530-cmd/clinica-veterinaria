@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Clínica Veterinaria</h1>
+<p>Bienvenido al sistema de citas</p>
+
+<a href="/nueva" class="btn btn-success mb-3">Nueva Cita</a>
+
+{% if citas %}
+    <div class="row">
+        {% for cita in citas %}
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">{{ cita.mascota }}</h5>
+                    <p><strong>Dueño:</strong> {{ cita.propietario }}</p>
+                    <p><strong>Fecha:</strong> {{ cita.fecha }}</p>
+                    <a href="/editar/{{ cita.id }}" class="btn btn-primary btn-sm">Editar</a>
+                    <a href="/eliminar/{{ cita.id }}" class="btn btn-danger btn-sm" onclick="return confirm('¿Cancelar cita?')">Cancelar</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="alert alert-warning">No hay citas programadas</div>
+{% endif %}
+{% endblock %}
